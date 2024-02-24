@@ -1,0 +1,57 @@
+{% extends "_base.html" %}
+{% load static %}
+
+{% block title %}
+{{username}}
+{% endblock %}
+
+{% block content %}
+
+<div class="w-full h-[200px] bg-gray-200 relative rounded-t-lg">
+    <img src="{% static 'images/durga-sir.jpg' %}" alt="" class="w-[98px] h-[98px] rounded-full absolute bottom-0 translate-y-[50%] translate-x-[50%]">
+</div>
+
+<div id="profileNav" class="ml-3 flex justify-center items-center text-[1rem] font-bold text-gray-500 bg-white pt-1 border-b-2">
+    <ul class="flex gap-16 items-center select-none">
+        <li class="flex flex-col justify-between cursor-pointer">
+            <a href="/profile?id=123/posts" class="flex flex-col items-center">
+                <span>Posts</span>
+                <span class="text-blue-500">10</span>
+            </a>
+            <span></span>
+        </li>
+
+        <li onclick="handleProfileNavClick(event)" class="flex flex-col justify-between cursor-pointer">
+            <a href="#" class="flex flex-col items-center">
+                <span>Freinds</span>
+                <span class="text-blue-500">10</span>
+            </a>
+        </li>
+
+        <li onclick="handleProfileNavClick(event)" class="flex flex-col justify-between cursor-pointer">
+            <a href="#" class="flex flex-col items-center">
+                <span>Favourites</span>
+                <span class="text-blue-500">10</span>
+            </a>
+        </li>
+
+        <li onclick="handleProfileNavClick(event)" class="flex flex-col justify-between cursor-pointer">
+            <a href="#" class="flex flex-col items-center">
+                <span>Chats</span>
+                <span class="text-blue-500">10</span>
+            </a>
+        </li>
+    </ul>
+</div>
+
+<center>
+
+    <h1 class="text-2xl">{{username}}</h1>
+
+</center>
+
+{% endblock %}
+
+{% block script %}
+<script src="{% static 'js/profile.js' %}"></script>
+{% endblock %}

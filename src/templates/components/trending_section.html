@@ -1,0 +1,24 @@
+<aside class="h-screen flex flex-col gap-8 items-center bg-inherit w-[25vw] text-black p-6 border border-l-2">
+    <form action="{% url 'search_user' %}" method="post" class="w-full flex gap-4" autocomplete="off">
+        {% csrf_token %}
+        <input class="w-full text-lg p-2 rounded-md" type="search" name="username" placeholder="Search @username" class="search-input">
+
+        <input type="submit" value="Search" class="bg-teal-600 text-sm text-white py-1 px-2 rounded-md border cursor-pointer">
+    </form>
+
+    <div class="w-full h-full bg-[#f0efef] rounded-lg p-4 overflow-y-auto">
+        <div class="flex justify-between items-center text-slate-700">
+            <h1 class="text-xl font-bold ">Trending</h1>
+            <div class="cursor-pointer">
+                <i class="fa-solid fa-gear"></i>
+            </div>
+        </div>
+        <div class="text-2xl">
+            {% if messages %}
+            {% for message in messages %}
+                <div>{{ message.id }}</div>
+            {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+</aside>

@@ -1,0 +1,38 @@
+{% load static %}
+<div class="w-full select-none flex gap-8 items-center my-8 p-4 border-2 rounded-lg shadow-md">
+    <div class="self-start cursor-pointer">
+        <img src="{% static 'images/durga-sir.jpg' %}" alt="" class="inline-block m-0 w-[48px] h-[48px] rounded-full">
+    </div>
+
+    <form action="{% url 'create_post' %}" id="secretForm" method="post" class="w-full flex flex-col gap-3" autocomplete="off">
+        {% csrf_token %}
+
+        <input type="text" name="hint_or_question" class="w-full p-2 rounded-md border focus:outline-none" placeholder="Hint!" required autofocus>
+        <input type="text" name="answer" id="secret" class="w-full px-2 py-3 rounded-md border focus:outline-none" placeholder="Your secrets..." required>
+
+        <div class="flex flex-col gap-1">
+            <input type="text" name="option1" id="option1" type="text" class="w-full p-2 rounded-md border focus:outline-none" placeholder="Option 1" value="" required>
+            <input type="text" name="option2" id="option2" class="w-full p-2 rounded-md border focus:outline-none" placeholder="Option 2" required>
+
+            <div class="flex items-center gap-2">
+                <input style="display: none;" type="text" name="option3" id="option3" class="w-full p-2 rounded-md border focus:outline-none" placeholder="Option 3">
+                <button type="button" style="display: none;" class="border-none p-0 m-0 cursor-default" id="cancel1">
+                    <i id="cancel1" class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            
+            <div class="flex items-center gap-2">
+                <input style="display: none;" type="text" name="option4" id="option4" class="w-full p-2 rounded-md border focus:outline-none" placeholder="Option 4">
+                <button type="button" style="display: none;" class="border-none p-0 m-0 cursor-default" id="cancel2">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <input type="button" id="addMoreBtn" value="+ Add more option" class="self-start cursor-pointer">
+        </div>
+
+
+        <input type="submit" value="Submit" class="self-end bg-[#1f4a75] text-white py-2 px-4 rounded-md border cursor-pointer mt-4">
+
+    </form>
+</div>

@@ -1,0 +1,17 @@
+{% extends "_base.html" %}
+
+{% block title %}
+Your vault
+{% endblock %}
+
+{% block content %}
+<div class="p-8">
+    <h1 class="w-full text-left text-3xl mb-8">Your vault</h1>
+
+    {% include "../components/create_post_form.html" %}
+    <hr>
+    {% include "../components/post_filter.html" %}
+</div>
+
+
+{% endblock %}

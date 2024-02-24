@@ -1,0 +1,30 @@
+{% extends "_base.html" %}
+
+{% block title %}
+Notifications
+{% endblock %}
+
+{% block content %}
+<div class="p-8">
+    <h1 class="w-full text-left text-3xl mb-8">Notifications</h1>
+
+    <hr>
+
+    <div>
+        <form action="" method="post" class="focus:outline-none w-full flex items-center justify-end py-4 px-2">
+            {% csrf_token %}
+            <select name="status" id="" class="focus:outline-none border-2 p-1 mx-4 rounded-md" required>
+                <option value="secret">Friend requests</option>
+                <option value="revealed">Friend's new secrets</option>
+                <option value="revealed">Friend's revealed secrets</option>
+                <option value="revealed">Friend's post predictions</option>
+            </select>
+            <input type="submit" value="Filter" class="bg-teal-600 text-sm text-white py-1 px-4 rounded-md border cursor-pointer mx-4">
+        </form>
+    </div>
+
+    <hr>
+
+
+</div>
+{% endblock %}

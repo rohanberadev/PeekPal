@@ -1,0 +1,10 @@
+<div class="flex items-center justify-end py-4 px-2 mb-4">
+    <form action="" method="post" class="flex">
+        {% csrf_token %}
+        <select name="status" id="" class="focus:outline-none border-2 p-1 mx-4 rounded-md" required>
+            <option value="secret">Your secrets</option>
+            <option value="revealed">Revealed</option>
+        </select>
+        <input type="submit" value="Filter" class="bg-teal-600 text-sm text-white py-1 px-4 rounded-md border cursor-pointer mx-4">
+    </form>
+</div>

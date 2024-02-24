@@ -1,0 +1,83 @@
+{% extends "_base.html" %}
+{% load static %}
+
+{% block title %}
+Home
+{% endblock %}
+
+{% block content %}
+<div class="p-8">
+    <h1 class="w-full text-left text-3xl mb-8">Home</h1>
+
+    <hr>
+
+    {% include "../components/create_post_form.html" %}
+
+    <hr>
+
+    <div class="flex flex-col">
+        <div id="post" class="">
+
+        </div>
+    </div>
+
+    <div id="posts" class="flex flex-col mt-8 gap-6">
+        {% for d in data %}
+        <div class="w-full flex gap-6 border-2 rounded-lg py-3 px-4">
+            <div class="self-start">
+                <img src="{% static 'images/durga-sir.jpg' %}" alt="" class="inline-block m-0 w-[48px] h-[48px] rounded-full">
+            </div>
+            <div class="w-full flex flex-col gap-2">
+                <div class="flex gap-1 items-center">
+                    <h1>Display name</h1>
+                    <p class="text-gray-500 font-semibold">@username</p>
+                </div>
+        
+                <h1 class="text-lg font-semibold">
+                    <a href="">Hint!!!</a>
+                </h1>
+                <form action="" method="post" class="w-full flex justify-start mt-4">
+                    {% csrf_token %}
+                    <input type="hidden" name="post" value="{{post}}">
+
+                    <div class="w-full flex flex-col justify-start gap-4 pr-4">
+                        <input type="submit" name="prediction" value="Option 1" {% if display %} class="w-full bg-green-100 text-left p-2 border-2 border-gray-200 rounded-md cursor-pointer shadow-inner" {% endif %}>
+                        <input type="submit" name="prediction" value="Option 2" class="w-full text-left p-2 border-2 rounded-md cursor-pointer">
+                        <input type="submit" name="prediction" value="Option 3" class="w-full text-left p-2 border-2 rounded-md cursor-pointer">
+                        <input type="submit" name="prediction" value="Option 4" class="w-full text-left p-2 border-2 rounded-md cursor-pointer">
+                    </div>
+                </form>
+        
+                <div class="w-full flex justify-between items-center mt-4">
+                    <div class="flex gap-16">
+                        <a href="">
+                            <i class="fa-regular fa-comment"></i>
+                            <span>1</span>
+                        </a>
+            
+                        <a href="">
+                            <i class="fa-regular fa-eye"></i>
+                            <span>2</span>
+                        </a>
+            
+                        <a href="">
+                            <i class="fa-regular fa-heart"></i>
+                            <span>100</span>
+                        </a>
+            
+                        <a href="">
+                            <i class="fa-solid fa-arrow-up-from-bracket"></i>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
+
+{% block script %}
+<script src="{% static 'js/home.js' %}"></script>
+{% endblock %}

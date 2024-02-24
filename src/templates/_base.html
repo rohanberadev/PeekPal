@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PeekPal - {% block title %}{% endblock title %}</title>
+    {% include "head/bootstrap.html" %}
+    {% include "head/css.html" %}
+    {% include "head/icon.html" %}
+
+    <style>
+        
+
+    </style>
+
+</head>
+<body class="bg-[#F5F5F5] flex">
+    {% include "components/navbar.html" %}
+
+    <div id="root" class="h-screen flex-auto overflow-y-auto">
+        {% block content %}{% endblock content %}
+    </div>
+    
+    {% include "components/trending_section.html" %}
+    
+    <script src="{% static 'js/_base.js' %}"></script>
+    {% block script %}{% endblock %}
+</body>
+</html>
